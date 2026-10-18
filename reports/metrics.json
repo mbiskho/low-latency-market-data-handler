@@ -1,0 +1,54 @@
+{
+  "project": "Low-Latency Market Data Handler",
+  "data_notice": "Synthetic timing fixture; throughput and latency are illustrative, not hardware benchmarks.",
+  "metrics": {
+    "events_processed": 10000,
+    "p50_latency_us": 9.96,
+    "p95_latency_us": 16.58,
+    "p99_latency_us": 21.09,
+    "mean_latency_us": 10.85,
+    "throughput_events_per_sec": 2400000,
+    "observed_load_levels_pct": [
+      10,
+      25,
+      50,
+      75,
+      100
+    ],
+    "dropped_events": 3,
+    "drop_rate_ppm": 300.0,
+    "out_of_order_events": 7,
+    "sequence_recovery_rate_pct": 99.93
+  },
+  "chart": {
+    "title": "Tail latency under increasing input load",
+    "x_label": "Input load (%)",
+    "y_label": "p99 handler latency (us)",
+    "series": [
+      {
+        "name": "p99 latency",
+        "values": [
+          17.4,
+          18.82,
+          22.72,
+          28.17,
+          34.96
+        ]
+      }
+    ]
+  },
+  "flow": [
+    "Multicast feed",
+    "Packet decoder",
+    "Sequence repair",
+    "Book builder",
+    "Consumer API"
+  ],
+  "flow_values": [
+    0.08,
+    0.7,
+    1.4,
+    2.2,
+    0.35
+  ]
+}
